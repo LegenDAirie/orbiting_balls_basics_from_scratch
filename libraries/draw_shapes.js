@@ -2,8 +2,9 @@
 
 (function(){
   globalThing.shapeMaker = {
-    drawCircle: function(x, y, radius, color) {
+    drawCircle: function(x, y, radius, color){
       var context = globalThing.context
+      console.log()
       context.beginPath();
       context.strokeWidth = 2;
 
@@ -16,8 +17,8 @@
         false
       )
 
-      context.fillStyle = color;
       context.stroke();
+      context.fillStyle = color;
       context.fill();
     }
   }

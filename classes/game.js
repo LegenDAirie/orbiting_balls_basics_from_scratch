@@ -1,31 +1,29 @@
-'use starict';
+'use strict';
 
 (function(){
   var GAME_PROTOTYPE = {
     start: function() {
-      setInterval(this.tick.bind(this), 1000/600)
+      setInterval(this.tick.bind(this), 1000/60)
+
     },
 
     tick: function() {
       var canvas = globalThing.canvas
-
-      globalThing.context.clearRect(0, 0, canvas.width, canvas.height)
+      var context = globalThing.context
+      context.clearRect(0, 0, canvas.width, canvas.height)
       this.ball.move();
       this.ball.draw();
-
     }
+
   }
 
   globalThing.Game = {
-    create: function () {
+    create: function() {
       var game = Object.create(GAME_PROTOTYPE);
 
-      var location = {x: 300, y: 300};
-      var velocity = {x: 0, y: 0};
-
-      game.ball = globalThing.Ball.create(location, velocity, 20);
-
+      game.ball = globalThing.Ball.create();
       return game;
     }
   }
+
 })()
